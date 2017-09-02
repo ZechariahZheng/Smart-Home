@@ -12,13 +12,14 @@ class MyTcp : public QObject
 public:
     explicit MyTcp(QObject *parent = 0);
     ~MyTcp();
+    void sendMsg(QString msg);
 
 private:
     QTcpServer *server;
     QTcpSocket *clientConnection;
 
 signals:
-    void kongtiao();
+    void login(char *user, char *pswd);       //登入信号
 
 public slots:
     void acceptConnection();

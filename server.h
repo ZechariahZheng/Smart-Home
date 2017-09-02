@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include "mytcp.h"
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include "control.h"
 
 namespace Ui {
 class Server;
@@ -18,10 +22,13 @@ public:
 
 private:
     Ui::Server *ui;
-    MyTcp *tcpServer;
+    MyTcp *tcpServer;           //tcp变量
+    Control *control;           //控制界面
 
 public slots:
-    void action();
+    void login_tcp(char *user, char *pswd);
+private slots:
+    void on_logInButton_clicked();
 };
 
 #endif // SERVER_H
